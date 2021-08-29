@@ -1,0 +1,112 @@
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 4.4.0-Exiv2">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+    xmlns:mwg-rs="http://www.metadataworkinggroup.com/schemas/regions/"
+    xmlns:stArea="http://ns.adobe.com/xmp/sType/Area#"
+    xmlns:MP="http://ns.microsoft.com/photo/1.2/"
+    xmlns:MPRI="http://ns.microsoft.com/photo/1.2/t/RegionInfo#"
+    xmlns:MPReg="http://ns.microsoft.com/photo/1.2/t/Region#"
+    xmlns:digiKam="http://www.digikam.org/ns/1.0/"
+    xmlns:MicrosoftPhoto="http://ns.microsoft.com/photo/1.0/"
+    xmlns:lr="http://ns.adobe.com/lightroom/1.0/"
+    xmlns:mediapro="http://ns.iview-multimedia.com/mediapro/1.0/"
+    xmlns:acdsee="http://ns.acdsee.com/iptc/1.0/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+   acdsee:categories="&lt;Categories&gt;&lt;Category Assigned=&quot;0&quot;&gt;People&lt;Category Assigned=&quot;1&quot;&gt;C&lt;/Category&gt;&lt;Category Assigned=&quot;1&quot;&gt;A&lt;/Category&gt;&lt;Category Assigned=&quot;1&quot;&gt;B&lt;/Category&gt;&lt;/Category&gt;&lt;/Categories&gt;">
+   <mwg-rs:Regions rdf:parseType="Resource">
+    <mwg-rs:RegionList>
+     <rdf:Bag>
+      <rdf:li>
+       <rdf:Description
+        mwg-rs:Name="A"
+        mwg-rs:Type="Face">
+       <mwg-rs:Area
+        stArea:x="0.20843"
+        stArea:y="0.317448"
+        stArea:w="0.0453318"
+        stArea:h="0.0892205"
+        stArea:unit="normalized"/>
+       </rdf:Description>
+      </rdf:li>
+      <rdf:li>
+       <rdf:Description
+        mwg-rs:Name="B"
+        mwg-rs:Type="Face">
+       <mwg-rs:Area
+        stArea:x="0.595679"
+        stArea:y="0.230359"
+        stArea:w="0.0343364"
+        stArea:h="0.0569428"
+        stArea:unit="normalized"/>
+       </rdf:Description>
+      </rdf:li>
+      <rdf:li>
+       <rdf:Description
+        mwg-rs:Name="C"
+        mwg-rs:Type="Face">
+       <mwg-rs:Area
+        stArea:x="0.784047"
+        stArea:y="0.295676"
+        stArea:w="0.0407022"
+        stArea:h="0.0937881"
+        stArea:unit="normalized"/>
+       </rdf:Description>
+      </rdf:li>
+     </rdf:Bag>
+    </mwg-rs:RegionList>
+   </mwg-rs:Regions>
+   <MP:RegionInfo rdf:parseType="Resource">
+    <MPRI:Regions>
+     <rdf:Bag>
+      <rdf:li
+       MPReg:PersonDisplayName="A"
+       MPReg:Rectangle="0.185764, 0.272838, 0.0453318, 0.0892205"/>
+      <rdf:li
+       MPReg:PersonDisplayName="B"
+       MPReg:Rectangle="0.578511, 0.201888, 0.0343364, 0.0569428"/>
+      <rdf:li
+       MPReg:PersonDisplayName="C"
+       MPReg:Rectangle="0.763696, 0.248782, 0.0407022, 0.0937881"/>
+     </rdf:Bag>
+    </MPRI:Regions>
+   </MP:RegionInfo>
+   <digiKam:TagsList>
+    <rdf:Seq>
+     <rdf:li>People/B</rdf:li>
+     <rdf:li>People/A</rdf:li>
+     <rdf:li>People/C</rdf:li>
+    </rdf:Seq>
+   </digiKam:TagsList>
+   <MicrosoftPhoto:LastKeywordXMP>
+    <rdf:Bag>
+     <rdf:li>People/B</rdf:li>
+     <rdf:li>People/A</rdf:li>
+     <rdf:li>People/C</rdf:li>
+    </rdf:Bag>
+   </MicrosoftPhoto:LastKeywordXMP>
+   <lr:hierarchicalSubject>
+    <rdf:Bag>
+     <rdf:li>People|B</rdf:li>
+     <rdf:li>People|A</rdf:li>
+     <rdf:li>People|C</rdf:li>
+    </rdf:Bag>
+   </lr:hierarchicalSubject>
+   <mediapro:CatalogSets>
+    <rdf:Bag>
+     <rdf:li>People|B</rdf:li>
+     <rdf:li>People|A</rdf:li>
+     <rdf:li>People|C</rdf:li>
+    </rdf:Bag>
+   </mediapro:CatalogSets>
+   <dc:subject>
+    <rdf:Bag>
+     <rdf:li>B</rdf:li>
+     <rdf:li>A</rdf:li>
+     <rdf:li>C</rdf:li>
+    </rdf:Bag>
+   </dc:subject>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?>
