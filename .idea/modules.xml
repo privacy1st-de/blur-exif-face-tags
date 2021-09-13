@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/20210828_image-xml-metadata.iml" filepath="$PROJECT_DIR$/.idea/20210828_image-xml-metadata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/blur-exif-face-tags.iml" filepath="$PROJECT_DIR$/.idea/blur-exif-face-tags.iml" />
     </modules>
   </component>
 </project>

@@ -12,7 +12,7 @@ import exif
 
 class NormalizedRectangle:
     """
-    x, y, width and height are normalized: Their values are in the range [0, 1]
+    x, y, width and height are normalized: Their values are in the range [0, 1].
     """
 
     x: float
@@ -82,5 +82,19 @@ def blur_rectangle2(image_src: Path, normalized_rectangles: List[NormalizedRecta
 
     # Save image
     if image_dst is None:
-        image_dst = image_src.parent.joinpath(f'{image_src.stem}_blurred{image_src.suffix}')
+        image_dst = get_image_dst(image_src)
     im.save(image_dst)
+
+
+def get_image_dst(image: Path):
+    return image.parent.joinpath(f'{image.stem}{stem_suffix()}{image.suffix}')
+
+
+def stem_suffix():
+    """
+    Modified images will be saved with a different filename.
+    This suffix will be added to their stem.
+    """
+
+    # return ' [blurred]'
+    return '_blurred'

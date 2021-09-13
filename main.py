@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from typing import List
 
@@ -29,9 +30,18 @@ def blur_image(image: exif.Image):
 
 
 def main():
-    for child in image_directory.iterdir():
-        if child.suffix.lower() in image_extensions:
-            blur_image(exif.Image(child))
+    # Convert all images in the image_directory, including subdirectories.
+    for _, _, files in os.walk(image_directory):
+        for relative_file_str in files:
+            file: Path = Path.joinpath(image_directory, relative_file_str)
+            if file.suffix.lower() in image_extensions:
+
+                if file.stem.endswith(blur.stem_suffix()):
+                    print(f'Skipped the following image as it is already blurred:\n\t{file}')
+                elif blur.get_image_dst(file).exists():
+                    print(f'Skipped the following image as it\'s blurred output does already exist:\n\t{file}')
+                else:
+                    blur_image(exif.Image(file))
 
 
 if __name__ == '__main__':

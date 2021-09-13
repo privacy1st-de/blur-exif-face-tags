@@ -23,19 +23,12 @@ class Image:
             if len(self.files) == 0:
                 raise Exception
         else:
-            raise Exception
+            raise Exception(f'{image_file}')
 
     def get_image_file(self):
         return self.files[0]
 
-    def get_xmp_metadata(self) -> AnyStr:
-        # TODO: Try to read xmp metadata from the image file itself, if there is no sidecar xmp file
-
-        xmp_sidecar = self.get_xmp_sidecar()
-        with open(xmp_sidecar, "r") as f:
-            return f.read()
-
-    def get_xmp_sidecar(self):
+    def get_xmp_file(self):
         """
         :return: The sidecar xmp file, if it exists. Otherwise None is returned.
         """
@@ -45,6 +38,17 @@ class Image:
             if file_extension.lower() == 'xmp':
                 return file
         return None
+
+    def get_metadata_file(self):
+        """
+        If a sidecar xmp file exists, it is preferred over the image file itself.
+
+        :return: A file containing the image metadata.
+        """
+        metadata = self.get_xmp_file()
+        if metadata is None:
+            metadata = self.get_image_file()
+        return metadata
 
     def __str__(self):
         return f'Image: {self.__dict__}'
@@ -75,12 +79,12 @@ class ExifImageRegion:
 
 
 def get_exif_image_regions(image: Image) -> List[ExifImageRegion]:
-    sidecar: Path = image.get_xmp_sidecar()
+    img_metadata_file: Path = image.get_metadata_file()
 
-    names_str = exec.execute_save(['exiftool', '-RegionName', str(sidecar)])
-    r_types_str = exec.execute_save(['exiftool', '-RegionType', str(sidecar)])
-    area_units_str = exec.execute_save(['exiftool', '-RegionAreaUnit', str(sidecar)])
-    rectangles_str = exec.execute_save(['exiftool', '-RegionRectangle', str(sidecar)])
+    names_str = exec.execute_save(['exiftool', '-RegionName', str(img_metadata_file)])
+    r_types_str = exec.execute_save(['exiftool', '-RegionType', str(img_metadata_file)])
+    area_units_str = exec.execute_save(['exiftool', '-RegionAreaUnit', str(img_metadata_file)])
+    rectangles_str = exec.execute_save(['exiftool', '-RegionRectangle', str(img_metadata_file)])
 
     names = names_str.strip().split(':', 1)[1].strip().split(', ')
     r_types = r_types_str.strip().split(':', 1)[1].strip().split(', ')
