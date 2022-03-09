@@ -29,6 +29,6 @@
 
 Many thanks to
 
-* [https://www.thregr.org/~wavexx/software/facedetect/#blurring-faces-within-an-image]()
-* "Make blur all around a rectangle in image with PIL", [https://stackoverflow.com/q/56987112/6334421]()
-* Example image: [https://unsplash.com/photos/1qfy-jDc_jo?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink]()
+* https://www.thregr.org/~wavexx/software/facedetect/#blurring-faces-within-an-image
+* "Make blur all around a rectangle in image with PIL", https://stackoverflow.com/q/56987112/6334421
+* Example image: https://unsplash.com/photos/1qfy-jDc_jo
