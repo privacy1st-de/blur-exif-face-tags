@@ -35,23 +35,24 @@ class NormalizedRectangle:
             raise Exception
 
 
-def blur_rectangle0(image_src: exif.Image, region: exif.ExifImageRegion, image_dst: Path = None):
+def blur_rectangle0(image_src: exif.Image, region: exif.ExifImageRegion, image_dst: Path = None) -> Path:
     if region.area_unit == 'normalized':
-        blur_rectangle1(image_src, normalized_rectangles=[NormalizedRectangle.of_exif_image_region(region=region)],
-                        image_dst=image_dst)
+        return blur_rectangle1(image_src,
+                               normalized_rectangles=[NormalizedRectangle.of_exif_image_region(region=region)],
+                               image_dst=image_dst)
     else:
-        raise Exception
+        raise Exception(f'Unknown area_unit: {region.area_unit}')
 
 
-def blur_rectangle1(image_src: exif.Image, normalized_rectangles: List[NormalizedRectangle], image_dst: Path = None):
-    blur_rectangle2(image_src.get_image_file(), normalized_rectangles,
-                    image_dst=image_dst)
+def blur_rectangle1(image_src: exif.Image, normalized_rectangles: List[NormalizedRectangle], image_dst: Path = None) -> Path:
+    return blur_rectangle2(image_src.get_image_file(),
+                           normalized_rectangles,
+                           image_dst=image_dst)
 
 
-def blur_rectangle2(image_src: Path, normalized_rectangles: List[NormalizedRectangle], image_dst: Path = None):
+def blur_rectangle2(image_src: Path, normalized_rectangles: List[NormalizedRectangle], image_dst: Path = None) -> Path:
     if len(normalized_rectangles) == 0:
-        print('No rectangles to blur')
-        return
+        raise Exception('No rectangles to blur')
 
     # Open an image
     im = Image.open(image_src)
@@ -84,6 +85,8 @@ def blur_rectangle2(image_src: Path, normalized_rectangles: List[NormalizedRecta
     if image_dst is None:
         image_dst = get_image_dst(image_src)
     im.save(image_dst)
+
+    return image_dst
 
 
 def get_image_dst(image: Path):

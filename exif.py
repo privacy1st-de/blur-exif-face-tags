@@ -86,6 +86,10 @@ def get_exif_image_regions(image: Image) -> List[ExifImageRegion]:
     area_units_str = exec.execute_save(['exiftool', '-RegionAreaUnit', str(img_metadata_file)])
     rectangles_str = exec.execute_save(['exiftool', '-RegionRectangle', str(img_metadata_file)])
 
+    if len(names_str) == len(r_types_str) == len(area_units_str) == len(rectangles_str) == 0:
+        # there are no tagged areas on this image
+        return []
+
     names = names_str.strip().split(':', 1)[1].strip().split(', ')
     r_types = r_types_str.strip().split(':', 1)[1].strip().split(', ')
     area_units = area_units_str.strip().split(':', 1)[1].strip().split(', ')

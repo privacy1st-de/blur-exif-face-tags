@@ -2,12 +2,13 @@ from typing import List
 import sys
 import subprocess
 
+
 def execute_save(command: List[str]):
     returncode, stdout, stderr = execute(command)
     if returncode == 0:
         return stdout
     else:
-        raise Exception
+        raise Exception(f'Non-zero returncode: {returncode}\n{stderr}')
 
 
 def execute(command: List[str]):
