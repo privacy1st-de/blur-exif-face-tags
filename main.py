@@ -18,7 +18,7 @@ names = ['A', 'B', 'C']
 
 delete_original: bool = True  # deletes the original image after blurring image was created
 copy_metadata_gps: bool = True  # copies gps location from original to blurred image
-copy_metadata_timestamp: bool = True  # TODO: copies timestamp from original to blurred image
+copy_metadata_date: bool = True  # copies date from original to blurred image
 
 # Lower-case image extensions.
 image_extensions = ['.jpg', '.jpeg', '.png']
@@ -70,9 +70,9 @@ def main():
             if blurred_img is not None and copy_metadata_gps:
                 print(f'  Copying gps metadata to blurred file ...')
                 exec.execute_save(['exiftool', '-tagsfromfile', str(file), '-gps:all', str(blurred_img)])
-            if blurred_img is not None and copy_metadata_timestamp:
-                # TODO
-                pass
+            if blurred_img is not None and copy_metadata_date:
+                print(f'  Copying date metadata to blurred file ...')
+                exec.execute_save(['exiftool', '-tagsfromfile', str(file), '-alldates', str(blurred_img)])
             if blurred_img is not None and delete_original:
                 print(f'  Deleting original file ...')
                 file.unlink()
