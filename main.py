@@ -20,7 +20,7 @@ delete_original: bool = True  # deletes the original image after blurring image 
 copy_metadata_gps: bool = True  # copies gps location from original to blurred image
 copy_metadata_timestamp: bool = True  # TODO: copies timestamp from original to blurred image
 
-# lower-case image extensions
+# Lower-case image extensions.
 image_extensions = ['.jpg', '.jpeg', '.png']
 
 r_types = ['Face']
@@ -31,11 +31,11 @@ r_types = ['Face']
 def blur_image(image: exif.Image) -> Union[Path, None]:
     """
     If at least one tagged area of the image matches the criteria,
-    a blurred image is created and it's path returned.
+    a blurred image is created and its path is returned.
     """
     exif_image_regions: List[ExifImageRegion] = get_exif_image_regions(image=image)
 
-    # Blur only some faces
+    # Blur only some faces.
     normalized_rectangles = []
     for region in exif_image_regions:
         if len(r_types) > 0 and region.r_type not in r_types:
@@ -70,6 +70,9 @@ def main():
             if blurred_img is not None and copy_metadata_gps:
                 print(f'  Copying gps metadata to blurred file ...')
                 exec.execute_save(['exiftool', '-tagsfromfile', str(file), '-gps:all', str(blurred_img)])
+            if blurred_img is not None and copy_metadata_timestamp:
+                # TODO
+                pass
             if blurred_img is not None and delete_original:
                 print(f'  Deleting original file ...')
                 file.unlink()
