@@ -11,7 +11,7 @@
 
 2) Copy all pictures to be modified in a folder
 
-> See [example/](example/)
+> See [example](example)
 
 3) Run this python script on that folder with a list of names of persons to be blurred
 
@@ -22,7 +22,7 @@
 >
 > This results in the following picture:
 > 
-> ![](example/unsplash_blurred.jpg)
+> ![](example/unsplash[blurred].jpg)
 
 
 ## Credits
