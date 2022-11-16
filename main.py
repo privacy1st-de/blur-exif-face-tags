@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Optional
 
 import exif
 import image_manipulation
@@ -12,12 +13,12 @@ image_directory = Path('example')  # Image directory.
 names = ['A', 'B', 'C']  # Names of Persons to be blurred.
 # names = []  # Blurr all faces.
 
-resolution = 2048  # Resize image.
-# resolution = None  # Keep original image size.
-text = "Example"  # Add text to image.
-# text = None  # Do not add text.
+# resolution: Optional[int] = 2048  # Resize image.
+resolution: Optional[int] = None  # Keep original image size.
+# text: Optional[str] = "Example"  # Add text to image.
+text: Optional[str] = None  # Do not add text.
 
-copy_metadata_orientation: bool = False  # Copies orientation metadata from original image.
+copy_metadata_orientation: bool = True  # Copies orientation metadata from original image.
 copy_metadata_gps: bool = True  # Copies gps location metadata from original image.
 copy_metadata_date: bool = True  # Copies date metadata from original image.
 
@@ -66,7 +67,8 @@ def blur_image(image_files: exif.ImageFiles, dst: Path) -> Path:
 
     im = image_manipulation.open_image(image_files)
     im = image_manipulation.blur(im, areas)
-    im = image_manipulation.resize(im, resolution)
+    if resolution:
+        im = image_manipulation.resize(im, resolution)
     im = image_manipulation.add_text(im, text)
     return image_manipulation.save_image(im, dst, image_files)
 
