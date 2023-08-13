@@ -172,4 +172,6 @@ def copy_metadata(src: Path | exif.ImageFiles,
     args += [str(dst)]
 
     print(f'  Copying metadata ...')
+    # TODO: Without -orientation, -gps:all and -alldates, all metadata is copied
+    #       but with those additional params, it seems as if nothing is copied
     execute_save(args)
